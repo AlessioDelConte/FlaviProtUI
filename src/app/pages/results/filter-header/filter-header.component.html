@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Apply filters</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Filter sequences based on multiple options</h6>
+
+    <form [formGroup]="form">
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Group</legend>
+        <div class="col-sm-10">
+          <div class="row justify-content-start">
+            <div class="col-auto" *ngFor="let group of groupsFormArray.controls; let i = index">
+              <div class="form-check"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+                <label class="form-check-label" formArrayName="groups">
+                  <input class="form-check-input" type="checkbox" [formControlName]="i">
+                  {{filters.groups[i].shortName}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Sub-group</legend>
+        <div class="col-sm-10">
+          <div class="row justify-content-start">
+            <div class="col-auto" *ngFor="let subGroup of subGroupsFormArray.controls; let i = index">
+              <div class="form-check">
+                <label class="form-check-label" formArrayName="subGroups">
+                  <input class="form-check-input" type="checkbox" [formControlName]="i">
+                  {{filters.subGroups[i].shortName}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Species</legend>
+        <div class="col-sm-10">
+          <div class="row justify-content-start">
+            <div class="col-auto" *ngFor="let species of speciesFormArray.controls; let i = index">
+              <div class="form-check">
+                <label class="form-check-label" formArrayName="species">
+                  <input class="form-check-input" type="checkbox" [formControlName]="i">
+                  {{filters.species[i].shortName}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<ng-container *ngIf="form$ | async"></ng-container>

@@ -1,0 +1,7 @@
+<div class="row justify-content-between">
+  <div *ngFor="let chunk of chunks" class="col-auto">
+    <!--    Button with the name of the chunk -->
+    <button type="button" class="btn btn-primary"
+            [routerLink]="['results', chunk]">{{chunk}}</button>
+  </div>
+</div>

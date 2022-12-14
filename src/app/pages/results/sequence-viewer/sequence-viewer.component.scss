@@ -1,0 +1,51 @@
+.logoContainer {
+  overflow-x: scroll;
+}
+
+.noLogo {
+  margin-top: 80px;
+}
+
+text {
+  font-size: 4em;
+  font-family: monospace;
+}
+
+svg {
+  > g:nth-child(1) {
+    display: none;
+  }
+
+  > g:nth-child(2) {
+    display: none;
+  }
+
+  > g:nth-child(3) {
+    transform: translate(0, 0);
+  }
+}
+
+.lblContainer {
+  display: none !important;
+}
+
+.labels-container {
+  font-family: monospace;
+  margin-top: 101px;
+  font-size: 16px;
+  line-height: 1em;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+.cnk {
+  padding-right: 0 !important;
+}
+
+#psv > div > div {
+  overflow-x: unset !important;
+}
+
+
