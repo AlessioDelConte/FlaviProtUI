@@ -1,32 +1,45 @@
-<div class="form-check form-switch">
-  <label class="form-check-label">
-    Show sequence logo
-    <input class="form-check-input" type="checkbox" role="switch"
-           [checked]="showLogo"
-           (change)="showLogo = !showLogo">
-  </label>
-</div>
+<div class="row justify-content-around my-3">
+  <div class="form-check form-switch w-auto">
+    <label class="form-check-label ">
+      Show sequence logo
+      <input class="form-check-input" type="checkbox" role="switch"
+             [checked]="showLogo"
+             (change)="showLogo = !showLogo">
+    </label>
+  </div>
 
-<div class="form-check form-switch">
-  <label class="form-check-label">
-    Show sequence alignment
-    <input class="form-check-input" type="checkbox" role="switch"
-           [checked]="showAlignment"
-           (change)="showAlignment = !showAlignment">
-  </label>
+  <div class="form-check form-switch w-auto">
+    <label class="form-check-label">
+      Show sequence alignment
+      <input class="form-check-input" type="checkbox" role="switch"
+             [checked]="showAlignment"
+             (change)="showAlignment = !showAlignment">
+    </label>
+  </div>
 </div>
 
 <!-- Two column, the first one small and fixed on the left, the second with the sequence viewer larger on the right -->
-<div class="row flex-nowrap">
-  <div class="col-auto labels-container px-0" [hidden]="!showAlignment">
-    <div *ngFor="let protein of proteins" class="text-end label">
-      {{protein.uniprot}} {{protein.group?.shortName}} {{protein.subGroup?.shortName}}
+<div class="row flex-nowrap overflow-hidden mb-4">
+  <div class="col-2  px-0">
+    <div [hidden]="!showLogo">
+      <div class="w-100 label text-end mb-0" style="margin-top: 31px">
+        Sequence Logo
+      </div>
+      <div class="w-100 label text-end mb-0" style="margin-top: 54px">
+        DSSP Logo
+      </div>
+    </div>
+    <div class="labels-container" [hidden]="!showAlignment" [style.margin-top]="showLogo ? '49px' : '22px'">
+      <div *ngFor="let protein of proteins" class="text-end label">
+        {{protein.uniprot}} {{protein.group?.shortName}} {{protein.subGroup?.shortName}}
+      </div>
     </div>
   </div>
-  <div class="col-auto overflow-scroll">
-    <div class="logoContainer">
-      <div id="logo" [hidden]="!showLogo"></div>
-      <div id="psv" [hidden]="!showAlignment" [ngClass]="{noLogo: !showLogo}"></div>
+  <div class="col-10">
+    <div class="logoContainer" id="scrollbar1" [style.overflow-x]="proteins.length > 0 && showLogo ? 'scroll' : 'hidden'">
+      <div id="protLogo" [hidden]="!showLogo"></div>
+      <div id="dsspLogo" [hidden]="!showLogo"></div>
+      <div id="psv" [hidden]="!showAlignment"></div>
     </div>
   </div>
 </div>

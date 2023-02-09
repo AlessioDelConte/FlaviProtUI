@@ -12,6 +12,7 @@ text {
 }
 
 svg {
+  border-bottom: 3px solid #3b3c8c5e;
   > g:nth-child(1) {
     display: none;
   }
@@ -21,7 +22,7 @@ svg {
   }
 
   > g:nth-child(3) {
-    transform: translate(0, 0);
+    transform: translate(0, 80px);
   }
 }
 
@@ -31,7 +32,6 @@ svg {
 
 .labels-container {
   font-family: monospace;
-  margin-top: 101px;
   font-size: 16px;
   line-height: 1em;
 }
@@ -48,4 +48,30 @@ svg {
   overflow-x: unset !important;
 }
 
+
+.cell {
+  padding-top: 1.5px
+}
+
+/* Works on Firefox */
+//#alignment {
+//  scrollbar-width: thin;
+//  scrollbar-color: blue orange;
+//}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #a9a9b5;
+}
 

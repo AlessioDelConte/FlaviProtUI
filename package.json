@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "bootstrap": "^5.2.3",
+    "core-js": "^3.27.1",
     "logojs-react": "^2.1.1",
     "proseqviewer": "^1.1.9",
     "rxjs": "~7.5.0",

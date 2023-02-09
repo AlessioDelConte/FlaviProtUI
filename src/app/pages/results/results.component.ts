@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, shareReplay, switchMap, tap} from "rxjs/operators";
 import {ProteinService} from "../../protein.service";
 import {TaxonEntry} from "../../protein";
-import {BehaviorSubject, combineLatest} from "rxjs";
+import {BehaviorSubject, combineLatest, zip} from "rxjs";
 
 export interface TaxonFiltering {
   groups: Array<TaxonEntry>;
